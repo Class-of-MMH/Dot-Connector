@@ -1,4 +1,3 @@
-```c
 #include <iostream>  
 #include <vector>    
 #include <map>       // Include map container for scores
@@ -234,4 +233,3 @@ int main() {
 
     return 0;
 }
-```
