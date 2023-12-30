@@ -154,7 +154,7 @@ public:
 
 // Function to print game instructions
 void printInstructions() {
-    cout << "Welcome to Dots and Boxes!" << endl;
+    cout << "Welcome to Dot Connector!" << endl;
     cout << "Players take turns connecting dots to form squares." << endl;
     cout << "Enter your move in the format: row column direction (e.g., 1 2 H)" << endl;
     cout << "Rows and columns are numbered from 1 to " << SIZE << "." << endl;
