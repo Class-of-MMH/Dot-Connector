@@ -43,6 +43,8 @@ public: //Func
 	bool isTaken(int a, int b, std::vector<PropOfAnB>Sum_Product);	//Validation
 	void Draw(RenderWindow&);										//Draw lines and boxes
 	void setVertex();												//Set up the Vertex
+	void getBot();	
+	void Score_Bot(int);											//Save score for bot
 	void Score_player1(int);											//Save score for player
 	void Score_player2(int);											//Save score for bot
 	void printScore();												//Print Score
