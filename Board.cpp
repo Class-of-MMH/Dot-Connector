@@ -120,6 +120,29 @@ void Board::setVertex()
 	moveCount++;
 }
 
+void Board::getBot() {
+	int a{}, b{};
+	bool InvalidBox = false;
+	PropOfAnB aProp;
+	Choice aChoice;
+	srand(time(NULL));
+	a = rand() % (size * size);				//Randomize bot selection and validate it
+	b = rand() % (size * size);				//Randomize bot selection and validate it
+	while (isTaken(a, b, selectedLines) || notValid(a, b, size) || (a == b)) {	//This loop will stop whenever a,b is valid
+		a = rand() % (size * size);
+		b = rand() % (size * size);
+	}
+	if (a < b) { aChoice.a = a; aChoice.b = b; }			//This is for sorting a and b
+	else { aChoice.a = b; aChoice.b = a; }					// so that a always smaller than b
+	choice.push_back(aChoice);									//the Board::choice
+	aProp.product = a * b;						//Input product into
+	aProp.sum = a + b;							//vector::selectedLines to
+	selectedLines.push_back(aProp);				//use for Board::std::n
+	edge.inputEdges(aChoice.a, aChoice.b);
+	std::cout << " Bot chooses " << a << "-----" << b << std::endl;
+	setVertex();
+}
+
 
 //Save scores for player
 void Board::Score_player1(int leftcorner)
@@ -168,6 +191,28 @@ void Board::Score_player2(int leftcorner)
 	}
 }
 
+void Board::Score_Bot(int leftcorner)
+{
+		bool isValid = true;							//To validate if the boxes is saved or not
+		for (auto i : boxStore) {
+			if (leftcorner == i) isValid = false;
+		}
+		if (isValid) {
+			on_streak = true;
+			score.second++;
+			boxStore.push_back(leftcorner);
+			float Box_breadth = (static_cast<float>(0.8f * screen_size) / static_cast<float>(size) - 1.f) - 4; //Box breadth is 4 pixel smaller than board breadth
+			RectangleShape new_rect(Vector2f(Box_breadth, Box_breadth));
+			new_rect.setFillColor(Color(150, 60, 80, 200));
+			new_rect.setPosition(Vector2f(circle[leftcorner].getPosition()) + Vector2f(5, 5)); //Use the position of Circle to draw those boxes left corner
+			rects.push_back(new_rect);
+		}
+		else {
+			on_streak = false;
+		}
+
+
+}
 
 //Show the Score on CONSOLE
 void Board::printScore()
