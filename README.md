@@ -28,6 +28,6 @@ g++ -c *.cpp; g++ main.o Board.o Box.o -o sfml.app -lsfml-graphics -lsfml-window
  ./sfml.app <br>
 
 # Team members
-*1.Mahdi Hasan Qurishi (Reg: 2021331090) - @Enigmah-00<br>
-2.Zubayer Hossain Uday (Reg: 2021331002) - @ZH-Uday<br>
+*1.Zubayer Hossain Uday (Reg: 2021331002) - @ZH-Uday <br>
+2. Hasan Qurishi (Reg: 2021331090) - @Enigmah-00<br>
 3.Shafiuzzaman Akash (Reg: 2021331034) - @ZamanAkash*
